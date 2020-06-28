@@ -1,0 +1,19 @@
+@font-face {
+    font-family: BebasNeue;
+    font-weight: bold;
+    src: url("BebasNeue Bold.otf") format("opentype");
+}
+
+h1{
+    color: white;
+}
+
+h2{
+
+}
+
+.mainImage{
+    position: absolute;
+    height:100vh;
+    width: 50vw;
+}
