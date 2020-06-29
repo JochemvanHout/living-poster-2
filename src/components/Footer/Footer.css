@@ -1,0 +1,10 @@
+footer{
+    position: absolute;
+    z-index:1;
+}
+
+p {
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+}

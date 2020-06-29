@@ -1,7 +1,7 @@
 import React from "react"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import MainContent from "./components/MainContent"
+import Header from "./components/Header/Header"
+import MainContent from "./components/MainContent/MainContent"
+import Footer from "./components/Footer/Footer"
 import r from "./Login"
 
 import "./App.css";
@@ -94,7 +94,6 @@ export default class App extends React.Component {
 
 
   handleChange(e){
-    console.log(e.target.value);
     this.setState({
       userInput: e.target.value
     })
@@ -102,8 +101,7 @@ export default class App extends React.Component {
 
   handleKeyPress(e){
     if(e.key === "Enter"){
-      console.log(`The word that is currently typed is: ${e.target.value}`)
-
+      // Remove the extistant timer
       clearInterval(this.interval);
 
       this.extractDataFromSubreddit(e.target.value)
@@ -119,9 +117,6 @@ export default class App extends React.Component {
   render() {
 
     const { postData, postProgressCounter } = this.state;
-
-    // Make a global counter
-    // send all the data [counter]
 
     return (
       <div>

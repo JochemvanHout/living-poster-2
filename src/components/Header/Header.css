@@ -1,0 +1,17 @@
+header{
+    position: absolute;
+    z-index:1;
+}
+
+h1, h2{
+    color: white;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+h1{
+    font-size: 4em;
+}
+
+h2{
+    font-size: 3em;
+}

@@ -1,24 +1,21 @@
-/* @font-face {
+@font-face {
     font-family: BebasNeue;
     font-weight: bold;
-    src: url("BebasNeue Bold.otf") format("opentype");
-} */
+    src: url("./assets/BebasNeue Bold.otf") format("opentype");
+}
 
 body{
     position: absolute;
+    font-family: bebasNeue;
+
+    background-color: black;
+
+    height:100%;
+    width: 100%;
 }
 
-h1{
-    color: white;
-}
 
-h2{
 
-}
-
-.mainImage{
-    position: absolute;
-    height:100vh;
-    width: 50vw;
-    z-index: -999;
-}
+@import "./components/Header/Header.css";
+@import "./components/MainContent/MainContent.css";
+@import "./components/Footer/Footer.css";
