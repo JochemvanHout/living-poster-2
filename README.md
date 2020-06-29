@@ -6,3 +6,8 @@ Laugh at my old code: https://github.com/JochemvanHout/living-poster-old
 
 Simply put, it's a little project which shows you pictures from reddit on your given topic, presented as a nice looking poster. It rotates to a new picture every few seconds.
 Currently it only supports images, so no video's unfortunately.
+
+## TODO
+
+- Finish CSS
+- Make a failsafe incase no fitting subreddit is found
