@@ -12,7 +12,9 @@ export default class App extends React.Component {
     this.state = {
       loading: false,
       defaultSubreddits: ['itookapicture', 'astrophotography', 'nocontextpics', 'houseplants'],
-      postData: []
+      postData: [],
+      postProgressCounter: 0,
+      delay: 10000
     }
 
     this.extractDataFromSubreddit = this.extractDataFromSubreddit.bind(this)
@@ -50,12 +52,32 @@ export default class App extends React.Component {
    }
     this.setState({ postData, loading: false});
 
-    console.log(this.state.postData[0]);
+    // Start the timer to change the image
+    this.interval = setInterval(this.tick, this.state.delay);
+
+    console.log(this.state.postData);
+  }
+
+  tick = () => {
+     /*
+    /* make sure the loop rolls back to the beginning
+    /* the -1 is to prevent the progress to go 1 too far
+    /* since arrays start at 0
+    */
+    if(this.state.postProgressCounter < this.state.postData.length - 1){
+      this.setState({
+        postProgressCounter: this.state.postProgressCounter + 1
+      });
+    } else {
+      this.setState({
+        postProgressCounter: 0
+      });
+    }
   }
 
   render() {
 
-    const { postData } = this.state;
+    const { postData, postProgressCounter } = this.state;
 
     // Make a global counter
     // send all the data [counter]
@@ -64,9 +86,9 @@ export default class App extends React.Component {
       <div>
         {postData.length > 0 && (
           <div>
-             <Header postTitle={postData[0].title} postSubreddit={postData[0].subreddit.display_name}/>
-             <MainContent postUrl={postData[0].url}/>
-             <Footer postAuthor={postData[0].author.name}/>
+             <Header postTitle={postData[postProgressCounter].title} postSubreddit={postData[postProgressCounter].subreddit.display_name}/>
+             <MainContent postUrl={postData[postProgressCounter].url}/>
+             <Footer postAuthor={postData[postProgressCounter].author.name}/>
            </div>
         )}
       </div>
