@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import MainContent from "./components/MainContent"
-import r from './Login'
+import r from "./Login"
+
+import "./App.css";
 
 export default class App extends React.Component {
 
@@ -11,27 +13,39 @@ export default class App extends React.Component {
 
     this.state = {
       loading: false,
-      defaultSubreddits: ['itookapicture', 'astrophotography', 'nocontextpics', 'houseplants'],
+      defaultSubreddits: ["itookapicture", "astrophotography", "nocontextpics", "houseplants", "space"],
       postData: [],
+      userInput: "",
       postProgressCounter: 0,
       delay: 10000
     }
 
     this.extractDataFromSubreddit = this.extractDataFromSubreddit.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleChange = this.handleChange.bind(this)
 
-  }
+  } 
+
 
   componentDidMount() {
     this.extractDataFromSubreddit(this.state.defaultSubreddits[Math.floor(Math.random() * this.state.defaultSubreddits.length)])
-    //this.extractDataFromSubreddit('dogs')
+    //this.extractDataFromSubreddit("dogs")
   }
+
+
+  /*
+  * TODO!
+  * Make it so the script doesn't break when no matching subreddits have been found
+  */
 
   // search reddit for subreddits which fit in with the user input and extract their data
   async extractDataFromSubreddit(userInput) {
 
+
+
     this.setState({loading: true})
 
-    const possibleSubrredits = await r.searchSubreddits({query: userInput});
+    const possibleSubrredits = await r.searchSubreddits({query: userInput, includeNsfw: true});
     const postData = [];
     let counter = 0;
 
@@ -58,6 +72,7 @@ export default class App extends React.Component {
     console.log(this.state.postData);
   }
 
+
   tick = () => {
      /*
     /* make sure the loop rolls back to the beginning
@@ -73,7 +88,33 @@ export default class App extends React.Component {
         postProgressCounter: 0
       });
     }
+  } 
+
+
+
+
+  handleChange(e){
+    console.log(e.target.value);
+    this.setState({
+      userInput: e.target.value
+    })
   }
+
+  handleKeyPress(e){
+    if(e.key === "Enter"){
+      console.log(`The word that is currently typed is: ${e.target.value}`)
+
+      clearInterval(this.interval);
+
+      this.extractDataFromSubreddit(e.target.value)
+      
+      // clear user input for next entry
+      this.setState({
+        userInput: ""
+      })
+    }
+  }
+
 
   render() {
 
@@ -91,6 +132,12 @@ export default class App extends React.Component {
              <Footer postAuthor={postData[postProgressCounter].author.name}/>
            </div>
         )}
+        <input
+          name="userInputSearchQuery" 
+          value={this.state.userInput} 
+          onChange={this.handleChange} 
+          onKeyPress={this.handleKeyPress}
+        ></input>
       </div>
     );
   }

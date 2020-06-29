@@ -1,7 +1,11 @@
-@font-face {
+/* @font-face {
     font-family: BebasNeue;
     font-weight: bold;
     src: url("BebasNeue Bold.otf") format("opentype");
+} */
+
+body{
+    position: absolute;
 }
 
 h1{
@@ -16,4 +20,5 @@ h2{
     position: absolute;
     height:100vh;
     width: 50vw;
+    z-index: -999;
 }
