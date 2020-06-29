@@ -1,3 +1,10 @@
+This is my remade version of an old project I did in 2018. I loved the idea of the project, but looking back at it, the code just wasn't acceptable.
+
+Laugh at my old code: https://github.com/JochemvanHout/living-poster-old
+
+
+------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
