@@ -1,9 +1,6 @@
 .mainImage{
+	object-fit: cover;
     width:40%;
 	height: 100vh;
-	margin: 0 auto;
-	background:  no-repeat center center fixed; 
-	background-size: cover;
-	display: flex;
 	position: relative;
 }

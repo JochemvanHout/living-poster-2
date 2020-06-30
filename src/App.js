@@ -100,7 +100,7 @@ export default class App extends React.Component {
   }
 
   handleKeyPress(e){
-    if(e.key === "Enter"){
+    if(e.target.value && e.key === "Enter"){
       // Remove the extistant timer
       clearInterval(this.interval);
 
@@ -121,18 +121,22 @@ export default class App extends React.Component {
     return (
       <div>
         {postData.length > 0 && (
-          <div>
+          <div className="wrapper">
              <Header postTitle={postData[postProgressCounter].title} postSubreddit={postData[postProgressCounter].subreddit.display_name}/>
              <MainContent postUrl={postData[postProgressCounter].url}/>
              <Footer postAuthor={postData[postProgressCounter].author.name}/>
+            
+              <input
+                className="userInputCoverScreen"
+                name="userInputSearchQuery" 
+                value={this.state.userInput} 
+                onChange={this.handleChange} 
+                onKeyPress={this.handleKeyPress}
+              >
+              </input>
            </div>
         )}
-        <input
-          name="userInputSearchQuery" 
-          value={this.state.userInput} 
-          onChange={this.handleChange} 
-          onKeyPress={this.handleKeyPress}
-        ></input>
+        
       </div>
     );
   }

@@ -1,6 +1,7 @@
 header{
     position: absolute;
     z-index:1;
+    width:40%;
 }
 
 h1, h2{
