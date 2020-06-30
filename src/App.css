@@ -5,7 +5,7 @@
 }
 
 body{
-    position: absolute;
+    /* position: absolute; */
     font-family: bebasNeue;
 
     background-color: black;
@@ -15,12 +15,19 @@ body{
 
     overflow-y: hidden; 
     overflow-x: hidden; 
-}
 
-.wrapper{
     display: flex;
 	justify-content: center;
 }
+
+.wrapper{
+    width:40%;
+
+    display: flex;
+	justify-content: center;
+}
+
+
 
 .userInputCoverScreen{
     position: absolute;

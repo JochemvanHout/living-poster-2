@@ -127,25 +127,25 @@ export default class App extends React.Component {
     const { postData, postProgressCounter } = this.state;
 
     return (
-      <div>
+      <div className="wrapper">
         {postData.length > 0 && (
-          <div className="wrapper">
-             <Header postTitle={postData[postProgressCounter].title} postSubreddit={postData[postProgressCounter].subreddit.display_name}/>
-             <MainContent postUrl={postData[postProgressCounter].url}/>
-             <Footer postAuthor={postData[postProgressCounter].author.name}/>
-            
-              <input
-                id="userInput"
-                className="userInputCoverScreen"
-                name="userInputSearchQuery" 
-                value={this.state.userInput} 
-                onChange={this.handleChange} 
-                onKeyPress={this.handleKeyPress}
-              >
-              </input>
-           </div>
+
+          <React.Fragment>
+            <Header postTitle={postData[postProgressCounter].title} postSubreddit={postData[postProgressCounter].subreddit.display_name}/>
+            <MainContent postUrl={postData[postProgressCounter].url}/>
+            <Footer postAuthor={postData[postProgressCounter].author.name}/>
+          
+            <input
+              id="userInput"
+              className="userInputCoverScreen"
+              name="userInputSearchQuery" 
+              value={this.state.userInput} 
+              onChange={this.handleChange} 
+              onKeyPress={this.handleKeyPress}
+            >
+            </input>
+          </React.Fragment>
         )}
-        
       </div>
     );
   }
