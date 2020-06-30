@@ -2,6 +2,7 @@ header{
     position: absolute;
     z-index:1;
     width:40%;
+    padding-left: 2%;
 }
 
 h1, h2{

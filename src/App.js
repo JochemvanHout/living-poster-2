@@ -29,7 +29,9 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.extractDataFromSubreddit(this.state.defaultSubreddits[Math.floor(Math.random() * this.state.defaultSubreddits.length)])
-    //this.extractDataFromSubreddit("dogs")
+  
+    document.addEventListener('keydown', this.handleKeyPress);
+
   }
 
 
@@ -100,6 +102,10 @@ export default class App extends React.Component {
   }
 
   handleKeyPress(e){
+
+    // when any key is pressed be sure to focus the input form
+    document.getElementById('userInput').focus();
+
     if(e.target.value && e.key === "Enter"){
       // Remove the extistant timer
       clearInterval(this.interval);
@@ -110,6 +116,8 @@ export default class App extends React.Component {
       this.setState({
         userInput: ""
       })
+
+      e.target.blur()
     }
   }
 
@@ -127,6 +135,7 @@ export default class App extends React.Component {
              <Footer postAuthor={postData[postProgressCounter].author.name}/>
             
               <input
+                id="userInput"
                 className="userInputCoverScreen"
                 name="userInputSearchQuery" 
                 value={this.state.userInput} 

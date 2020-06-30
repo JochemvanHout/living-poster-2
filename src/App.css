@@ -34,7 +34,7 @@ body{
     text-align: center;
 
 	border: none;
-	background-color: transparent;
+    background-color: rgba(242, 113, 156, 0);
 
 	width:100%;
 	height:100%;
@@ -42,6 +42,9 @@ body{
 	outline-width: 0;
 }
 
+.userInputCoverScreen:focus{
+    background-color: rgba(242, 113, 156, 0.5);
+}
 
 @import "./components/Header/Header.css";
 @import "./components/MainContent/MainContent.css";
