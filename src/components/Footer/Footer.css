@@ -2,7 +2,7 @@ footer{
     position: absolute;
     z-index:1;
 
-    width:100%;
+    width:40%; /* Ideally this would be dynamic, or 100% of the parent width, but for some reason that doesn't work */
     bottom: 0;
     
     text-align: center;
@@ -12,6 +12,7 @@ p {
     color: white;
     font-size: 2em;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+    margin-top: -3%;
 }
 
 .paragraphSubtext{
